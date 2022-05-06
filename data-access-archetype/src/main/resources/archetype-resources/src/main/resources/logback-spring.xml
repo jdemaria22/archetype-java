@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration scan="true">
+    <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+    <property resource="application.properties" />
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${log4elk.console.pattern}</pattern>
+        </encoder>
+    </appender>
+    <appender name="elkAppender" class="com.claro.interfaces.log4elksb.apender.ElkAppender">
+        <host>${log4elk.elk.host}</host>
+        <port>${log4elk.elk.port}</port>
+        <credentials>${log4elk.elk.credentials}</credentials>
+        <applprefix>${log4elk.elk.applprefix}</applprefix>
+        <appl>${log4elk.elk.appl}</appl>
+        <pipeline>${log4elk.elk.pipeline}</pipeline>
+        <ismessage>${log4elk.elk.ismessage}</ismessage>
+        <messagefield>${log4elk.elk.messagefield}</messagefield>
+        <extrafields>${log4elk.elk.extrafields}</extrafields>
+        <layout>
+            <pattern>${log4elk.elk.pattern}</pattern>
+        </layout>
+    </appender>
+    <logger name="logToElkAppender" level="${log4elk.elk.level}">
+        <appender-ref ref="elkAppender" />
+    </logger>
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</Configuration>
