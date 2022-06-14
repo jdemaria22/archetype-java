@@ -11,7 +11,7 @@ mvn clean install
 ## Uso
 
 ```
-mvn archetype:generate -DarchetypeGroupId=com.claro.projectReactive.activeMQ -DarchetypeArtifactId=PROJECT-REACTIVE-ACTIVEMQ -DarchetypeVersion=1.0-SNAPSHOT
+mvn archetype:generate -DarchetypeGroupId=com.projectReactive.activeMQ -DarchetypeArtifactId=PROJECT-REACTIVE-ACTIVEMQ -DarchetypeVersion=1.0-SNAPSHOT
 ```
 Se crea el proyecto en modo interactivo. Sera necesario proveer:
    * groupId
